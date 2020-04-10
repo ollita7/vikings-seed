@@ -1,0 +1,26 @@
+import { createKiwiServer, IKiwiOptions, AuthorizeResponse } from 'kiwi-server';
+import * as http from 'http';
+import { UserController } from './controllers/user.controller'
+
+async function validateAuthentication(request: http.IncomingMessage, roles: Array<string>): Promise<AuthorizeResponse | boolean> {
+  console.log(roles);
+  return true;
+  // return new AuthorizeResponse(403, 'fasdfasdfdasgas dgs dsg');
+}
+
+const options: IKiwiOptions = {
+    controllers: [UserController],
+    authorization: validateAuthentication,
+    middlewares: [],
+    cors: {
+        enabled: true,
+        domains: []
+    },
+    documentation: {
+        enabled: true,
+        path: '/apidoc'
+    },
+    log: true,
+    port: 8086
+}
+const server = createKiwiServer(options);
