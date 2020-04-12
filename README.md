@@ -15,20 +15,20 @@ Not all the flavors has an impelementatios but we are working to have.
 ![Image description](stack.png)
 
 ### Angular9
-We create an angular application using the angular cli
+We create an angular 9 application using the angular cli
 
 #### External Packages
-1. ng-block-ui (https://www.npmjs.com/package/ng-block-ui)
-2. ngx-toastr (https://www.npmjs.com/package/ngx-toastr)
-3. We are using css flex (https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-4. Angular Reactive Forms (https://angular.io/guide/reactive-forms)
- - Default validators
- - Custom validators
-5. Authentication with guards and interceptors
+* ng-block-ui (https://www.npmjs.com/package/ng-block-ui)
+* ngx-toastr (https://www.npmjs.com/package/ngx-toastr)
+* We are using css flex (https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* Angular Reactive Forms (https://angular.io/guide/reactive-forms)
+  * Default validators
+  * Custom validators
+* Authentication with guards and interceptors
   
-  https://medium.com/@ryanchenkie_40935/angular-authentication-using-route-guards-bf7a4ca13ae3
+  *  https://medium.com/@ryanchenkie_40935/angular-authentication-using-route-guards-bf7a4ca13ae3
   
-  https://angular.io/api/common/http/HttpInterceptor
+  * https://angular.io/api/common/http/HttpInterceptor
 
 
 
