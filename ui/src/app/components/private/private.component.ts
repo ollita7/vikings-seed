@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./private.component.less']
 })
 export class PrivateComponent implements OnInit {
-
-  constructor() { }
+  title = 'WORKSHOP';
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

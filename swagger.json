@@ -28,6 +28,20 @@
                     "required": true
                 }
             }
+        },
+        "/user/current": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "tags": [
+                    "user"
+                ]
+            }
         }
     },
     "openapi": "3.0.0",

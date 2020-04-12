@@ -1,20 +1,26 @@
 import { createKiwiServer, IKiwiOptions, AuthorizeResponse } from 'kiwi-server';
 import * as http from 'http';
 import { UserController } from './controllers/user.controller'
+import { HeadersMiddleware } from './middlewares/headers.middleware.before';
 
 async function validateAuthentication(request: http.IncomingMessage, roles: Array<string>): Promise<AuthorizeResponse | boolean> {
-  console.log(roles);
+  const accessToken = request.headers['authorization'];
+  if (!accessToken) {
+    return new AuthorizeResponse(401, 'User is not atuhenticated')
+  }
+  if (accessToken !== 'HARCODED_TOKEN') {
+    return new AuthorizeResponse(401, 'Invalid User Token');
+  }
   return true;
-  // return new AuthorizeResponse(403, 'fasdfasdfdasgas dgs dsg');
 }
 
 const options: IKiwiOptions = {
     controllers: [UserController],
     authorization: validateAuthentication,
-    middlewares: [],
+    middlewares: [ HeadersMiddleware ],
     cors: {
         enabled: true,
-        domains: []
+        domains: ["http://localhost:4200"]
     },
     documentation: {
         enabled: true,

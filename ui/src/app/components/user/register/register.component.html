@@ -1,0 +1,39 @@
+<div class="register">
+  <h1>Register</h1>
+  <form [formGroup]="registerForm" >
+    <div class="container">
+      <mat-form-field appearance="fill"  class="full">
+        <mat-label>Email or Username</mat-label>
+        <input matInput placeholder="user@mail.com" formControlName="username">
+        <mat-error *ngIf="f.username.errors">{{getUsernameErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="container">
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="f.password.errors">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="container">
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Confirm your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password2" placeholder="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="f.password2.errors">{{getPassword2ErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="container">
+      <button mat-raised-button color="primary" (click)="register()">Register</button>
+    </div>
+    If you already have an account go <a [routerLink]="['/login']"> here</a>
+  </form>
+</div>
+
