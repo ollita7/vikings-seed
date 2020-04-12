@@ -14,6 +14,11 @@ Not all the flavors has an impelementatios but we are working to have.
 
 ![Image description](stack.png)
 
+### Fron end flavors
+At the moment we only have an application developed using angular 9 and also the same apllication is a PWA.
+
+In the  future we hope to add a React application.
+
 ### Angular9
 We create an angular 9 application using the angular cli
 
