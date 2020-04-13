@@ -31,6 +31,8 @@ In the  future we hope to add a React application.
 ### Angular9
 We create an angular 9 application using the angular cli
 
+For more information about this project please follow this [link](#https://github.com/ollita7/cavepot-seed/blob/master/uis/angular9/README.md)
+
 ### PWA
 In our case we adde pwa capabilities inside the angular9 applications.
 
@@ -55,8 +57,13 @@ We create a rest api
 ## Kiwi Server
 We create a rest api using Kiwi Server
 
+For more information about this project please follow this [link](#https://github.com/ollita7/cavepot-seed/blob/master/apis/kiwi-server/README.md)
+
+
 ## .Net Core
 IN PROGRESS
+
+For more information about this project please follow this [link](#https://github.com/ollita7/cavepot-seed/blob/master/apis/.dotnetcore/README.md)
 
 ## Future Work
 1. Create reale case (API for register, reset password, list users) (GUILLE)
