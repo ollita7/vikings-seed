@@ -15,13 +15,13 @@ For example you can pick a stack with angular9 + kiwi-server + mongodb or you ca
 * [Front End Flavors](#fron-end-flavors)
   * [Angular 9](#angular9)
   * [PWA](#pwa) 
-  * [React](#react) TODO
-* [Mobile Flavors](#mobile-flavors) TODO
-  * [React Native](#react) TODO
-  * [Xamarin](#xamarin) TODO
+  * [React](#react) (TODO)
+* [Mobile Flavors](#mobile-flavors) (TODO)
+  * [React Native](#react) TODO)
+  * [Xamarin](#xamarin) (TODO)
 * [Rest Api Flavors](#rest-api-flavors)
   * [Kiwi Server](#kiwi-server)
-  * [.Net Core](#.net-core)
+  * [.Net Core](#.net-core) (IN PROGRESS)
 * [Future Work](#Future-work)
 
 ## Flavors
