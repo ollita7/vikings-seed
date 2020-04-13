@@ -8,6 +8,10 @@ Basically the contains modules for authentication, atuhorization, register and l
 
 Selecting the right stack you can have an application to start without dealing with a lot of staff.
 
+For example you can pick a stack with angular9 + kiwi-server + mongodb or you can pick another stack with react + .net core + postgress.
+
+The main idea in this project is that you can the technologies that best fit for you and have a starter project without dealing with a lot of staff.
+
 # Table of Contents
 * [Flavors](#flavors)
 * [Front End Flavors](#fron-end-flavors)
