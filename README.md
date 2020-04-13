@@ -4,6 +4,8 @@ This poject is intended for those developers that want to start a project from s
 
 Basically the contains modules for authentication, atuhorization, register and login users.
 
+![Login image](login.jpeg)
+
 Selecting the right stack you can have an application to start without dealing with a lot of staff.
 
 # Table of Contents
@@ -19,7 +21,7 @@ Selecting the right stack you can have an application to start without dealing w
 On each layer we define some flavors to identify the tehcnologie that you want to use it.
 Not all the flavors has an impelementatios but we are working to have.
 
-![Image description](stack.png)
+![Image stack description](stack.png)
 
 ### Fron end flavors
 At the moment we only have an application developed using angular 9 and also the same apllication is a PWA.
@@ -28,6 +30,11 @@ In the  future we hope to add a React application.
 
 ### Angular9
 We create an angular 9 application using the angular cli
+
+### PWA
+In our case we adde pwa capabilities inside the angular9 applications.
+
+If you need to read about please take a look at this [post](http://blog.cavepot.com/angular-9-pwa/)
 
 #### External Packages
 * ng-block-ui (https://www.npmjs.com/package/ng-block-ui)
