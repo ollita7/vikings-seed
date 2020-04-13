@@ -6,7 +6,7 @@ Basically the project contains modules for authentication, atuhorization, regist
 
 ![Login image](login.jpeg)
 
-The main idea in this project is that you can the technologies that best fit for you and have a starter project without dealing with a lot of staff.
+The main idea of this project is that you can the technologies that best fit for you and have a starter project without dealing with a lot of staff.
 
 For example you can pick a stack with angular9 + kiwi-server + mongodb or you can pick another stack with react + .net core + postgress.
 
@@ -14,6 +14,11 @@ For example you can pick a stack with angular9 + kiwi-server + mongodb or you ca
 * [Flavors](#flavors)
 * [Front End Flavors](#fron-end-flavors)
   * [Angular 9](#angular9)
+  * [PWA](#pwa) 
+  * [React](#react) TODO
+* [Mobile Flavors](#mobile-flavors) TODO
+  * [React Native](#react) TODO
+  * [Xamarin](#xamarin) TODO
 * [Rest Api Flavors](#rest-api-flavors)
   * [Kiwi Server](#kiwi-server)
   * [.Net Core](#.net-core)
