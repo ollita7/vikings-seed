@@ -1,11 +1,18 @@
 # Tehcnologies stack seed
 
-This poject is intended for those developers that want to start a project from scratch and doesnt devide about the stack techonolgies
+This poject is intended for those developers that want to start a project from scratch and doesnt devide about the stack techonolgies.
+
+Basically the contains modules for authentication, atuhorization, register and login users.
+
+Selecting the right stack you can have an application to start without dealing with a lot of staff.
 
 # Table of Contents
 * [Flavors](#flavors)
 * [Front End Flavors](#fron-end-flavors)
   * [Angular 9](#angular9)
+* [Rest Api Flavors](#rest-api-flavors)
+  * [Kiwi Server](#kiwi-server)
+  * [.Net Core](#.net-core)
 * [Future Work](#Future-work)
 
 ## Flavors
@@ -35,7 +42,14 @@ We create an angular 9 application using the angular cli
   
   * https://angular.io/api/common/http/HttpInterceptor
 
+## Rest Api Flavors
+We create a rest api
 
+## Kiwi Server
+We create a rest api using Kiwi Server
+
+## .Net Core
+IN PROGRESS
 
 ## Future Work
 1. Create reale case (API for register, reset password, list users) (GUILLE)
