@@ -9,7 +9,7 @@
             "args": [],
             "cwd": "${workspaceRoot}",
             "name": "DEBUG",
-            "program": "${workspaceRoot}/api/dist/default/src/server.js",
+            "program": "${workspaceRoot}/apis/kiwi-server/dist/default/src/server.js",
             "request": "launch",
             "runtimeArgs": [
                 "--nolazy"

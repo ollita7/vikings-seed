@@ -1,5 +1,5 @@
-api/dist/
-api/node_modules/
-ui/node_modules/
-ui/dist/
+apis/kiwi-server/dist/
+apis/kiwi-server/node_modules/
+uis/angular9/node_modules/
+uis/angular9/dist/
 
