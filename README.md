@@ -2,7 +2,7 @@
 
 This poject is intended for those developers that want to start a project from scratch and doesnt devide about the stack techonolgies.
 
-Basically the contains modules for authentication, atuhorization, register and login users.
+Basically the project contains modules for authentication, atuhorization, register and login users user cases.
 
 ![Login image](login.jpeg)
 
