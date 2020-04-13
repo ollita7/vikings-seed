@@ -26,17 +26,26 @@ For example you can pick a stack with angular9 + kiwi-server + mongodb or you ca
 
 ## Flavors
 On each layer we define some flavors to identify the tehcnologie that you want to use it.
+
+We decide to use JWT to manage authentication so each layer is going to use the same.
+
 Not all the flavors has an impelementatios but we are working to have.
 
 ![Image stack description](stack.png)
 
 ### Fron end flavors
-At the moment we only have an application developed using angular 9 and also the same apllication is a PWA.
+At the moment we only have an application developed using angular 9 and also the same application is a PWA.
 
 In the  future we hope to add a React application.
 
 ### Angular9
 We create an angular 9 application using the angular cli
+
+Application use cases
+* Login
+* Register 
+* Forgot Password
+* Small admin page where you see the list of users
 
 For more information about this project please follow this [link](https://github.com/ollita7/cavepot-seed/blob/master/uis/angular9/README.md)
 
