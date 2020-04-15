@@ -69,9 +69,38 @@ If you need to read about please take a look at this [post](http://blog.cavepot.
 
 ## Rest Api Flavors
 All apis has the folloging services
-* POST `/user` (register a new user)
+* POST `/user` (register a new user) [username, mail, password]
 * GET `/user/curren` (get the current user)
-* POST `/user/login` (authenticate a user)
+* POST `/user/login` (authenticate a user) [username, password]
+* POST `/user/forgot-password` [mail]
+* POST `/user/reset-passowrd` [token, password] 
+
+### Responses
+```json
+{
+  result: number,
+  msg: string,
+  data: any
+}
+```
+
+#### Sample register ok
+```json
+{
+  result: 0,
+  msg: "User registered successfuly",
+  data: null
+}
+```
+
+#### Sample register error
+```json
+{
+  result: 1,
+  msg: "Username or mail already taken",
+  data: null
+}
+```
 
 ### Kiwi Server
 We create a rest api with the following services using kiwi-server.
