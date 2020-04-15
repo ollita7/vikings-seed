@@ -1,3 +1,7 @@
 export const environment = {
-    name: 'prod'
+    name: 'prod',
+    jwt: {
+      secret: process.env.JWT_SECRET,
+      timestamp: 60
+    }
 }

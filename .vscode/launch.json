@@ -8,7 +8,7 @@
         {
             "args": [],
             "cwd": "${workspaceRoot}",
-            "name": "DEBUG",
+            "name": "Kiwi Server debug",
             "program": "${workspaceRoot}/apis/kiwi-server/dist/default/src/server.js",
             "request": "launch",
             "runtimeArgs": [

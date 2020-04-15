@@ -2,6 +2,9 @@ import { createKiwiServer, IKiwiOptions, AuthorizeResponse } from 'kiwi-server';
 import * as http from 'http';
 import { UserController } from './controllers/user.controller'
 import { HeadersMiddleware } from './middlewares/headers.middleware.before';
+require('./config/db');
+import { Sequelize, Model, DataTypes, BuildOptions } from 'sequelize';
+
 
 async function validateAuthentication(request: http.IncomingMessage, roles: Array<string>): Promise<AuthorizeResponse | boolean> {
   const accessToken = request.headers['authorization'];
@@ -29,4 +32,5 @@ const options: IKiwiOptions = {
     log: true,
     port: 8086
 }
+
 const server = createKiwiServer(options);

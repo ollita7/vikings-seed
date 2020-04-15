@@ -68,15 +68,18 @@ If you need to read about please take a look at this [post](http://blog.cavepot.
   * https://angular.io/api/common/http/HttpInterceptor
 
 ## Rest Api Flavors
-We create a rest api
+All apis has the folloging services
+* POST `/user` (register a new user)
+* GET `/user/curren` (get the current user)
+* POST `/user/login` (authenticate a user)
 
-## Kiwi Server
-We create a rest api using Kiwi Server
+### Kiwi Server
+We create a rest api with the following services using kiwi-server.
 
 For more information about this project please follow this [link](https://github.com/ollita7/cavepot-seed/blob/master/apis/kiwi-server/README.md)
 
 
-## .Net Core
+### .Net Core
 IN PROGRESS
 
 For more information about this project please follow this [link](https://github.com/ollita7/cavepot-seed/blob/master/apis/.dotnetcore/README.md)
