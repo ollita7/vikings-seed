@@ -1,9 +1,10 @@
-import { verify } from 'jsonwebtoken';
+import { verify, sign } from 'jsonwebtoken';
 import { environment } from '../../environments/environment';
 import { getRepository } from '../datastore';
 import { User } from '../datastore/entities/user';
 import { UserIn } from '../models/user.model';
 import { encrypt } from '../encrypt';
+import { ResponseCode, Response } from '../models/response.models';
 
 export class AuthService {
   
@@ -16,14 +17,11 @@ export class AuthService {
       return new Response(ResponseCode.ERROR, 'Username or password is invalid. Please try again');
     }
 
-    // const timeSvc = new TimesheetService();
-    // const recentProjects = await timeSvc.mostRecentProjects(user.id);
+    const token = sign({ username, email: user.email, userId: user.id }, environment.jwt.secret, {
+      expiresIn: 60 * environment.jwt.timestamp
+    });
 
-    // const token = sign({ recentProjects, userId: user.id }, environment.jwt.secret, {
-    //  expiresIn: 60 * environment.jwt.timestamp
-    // });
-
-    // return new Response(ResponseCode.OK, '', token);
+    return new Response(ResponseCode.OK, '', token);
   }
 
   async validate(authHeader: string) {

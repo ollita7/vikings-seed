@@ -20,3 +20,8 @@ npm install kiwi-server-cli -g
 npx typeorm migration:run
 ```
 
+* Create new migration
+```bash
+npx typeorm migration:create -n <migrationname>
+```
+
