@@ -5,7 +5,7 @@ import { User } from './entities/user';
 
 const connection: Promise<void | Connection> = createConnection({
   type: "postgres",
-  url: "postgres://olla:n1rvanA!@localhost:5432/seed", //process.env.DATABASE_URL,
+  url: process.env.DATABASE_URL,
   synchronize: false,
   logging: false,
   entities: [User]
