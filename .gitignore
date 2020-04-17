@@ -1,5 +1,6 @@
 apis/kiwi-server/dist/
 apis/kiwi-server/node_modules/
+apis/kiwi-server/.env
 uis/angular9/node_modules/
 uis/angular9/dist/
 

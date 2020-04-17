@@ -3,7 +3,6 @@ import * as http from 'http';
 import { UserController } from './controllers/user.controller'
 import { HeadersMiddleware } from './middlewares/headers.middleware.before';
 
-
 async function validateAuthentication(request: http.IncomingMessage, roles: Array<string>): Promise<AuthorizeResponse | boolean> {
   const accessToken = request.headers['authorization'];
   if (!accessToken) {

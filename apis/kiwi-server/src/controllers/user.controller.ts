@@ -1,6 +1,6 @@
 import { JsonController, Get, Post, Param, Body, IsString, AuthorizeResponse, Authorize} from 'kiwi-server';
 import { UserIn } from '../models/user.model';
-import { UserService } from 'services/user.service';
+import { UserService } from '../services/user.service';
 
 @JsonController('/user')
 export class UserController {
@@ -9,7 +9,7 @@ export class UserController {
 
   @Post('/login')
   public post(@Body() body: UserIn){
-    this.userService.login(body);
+    // this.userService.login(body);
 
     /*
     if(body.username === 'kiwi' && body.password === '123456'){
@@ -21,7 +21,7 @@ export class UserController {
 
   @Post()
   public register(@Body() body: UserIn){
-    
+    return this.userService.register(body);
   }
 
   @Authorize()

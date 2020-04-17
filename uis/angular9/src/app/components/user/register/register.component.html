@@ -3,9 +3,16 @@
   <form [formGroup]="registerForm" >
     <div class="container">
       <mat-form-field appearance="fill"  class="full">
-        <mat-label>Email or Username</mat-label>
-        <input matInput placeholder="user@mail.com" formControlName="username">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="goku" formControlName="username">
         <mat-error *ngIf="f.username.errors">{{getUsernameErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="container">
+      <mat-form-field appearance="fill"  class="full">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="user@mail.com" formControlName="email">
+        <mat-error *ngIf="f.email.errors">{{getEmailErrorMessage()}}</mat-error>
       </mat-form-field>
     </div>
     <div class="container">

@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]]
     },
@@ -33,7 +34,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid){
       this.userService.register(this.registerForm.value).subscribe((response: any) => {
         if (response.result === 0){
-          this.router.navigate(['private']);
+          this.router.navigate(['login']);
         }
       });
     }
@@ -41,7 +42,15 @@ export class RegisterComponent implements OnInit {
 
   getUsernameErrorMessage(){
     if (this.f.username.errors.required){
-      return 'Email or Username is required';
+      return 'Username is required';
+    }
+  }
+  getEmailErrorMessage(){
+    if (this.f.email.errors.required){
+      return 'Email is required';
+    }
+    if (this.f.email.errors.email){
+      return 'Email is invalid';
     }
   }
 

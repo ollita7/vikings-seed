@@ -1,12 +1,14 @@
  
 import 'reflect-metadata';
 import {createConnection, Connection} from "typeorm";
+import { User } from './entities/user';
 
 const connection: Promise<void | Connection> = createConnection({
   type: "postgres",
-  url: process.env.DATABASE_URL,
+  url: "postgres://olla:n1rvanA!@localhost:5432/seed", //process.env.DATABASE_URL,
   synchronize: false,
-  logging: false
+  logging: false,
+  entities: [User]
 }).catch((error: any) => console.log(error));
 
 
