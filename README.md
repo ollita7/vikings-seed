@@ -47,7 +47,7 @@ Application use cases
 * Forgot Password
 * Small admin page where you see the list of users
 
-For more information about this project please follow this [link](https://github.com/ollita7/cavepot-seed/blob/master/uis/angular9/README.md)
+For more information about this project please follow this [link](uis/angular9)
 
 ### PWA
 In our case we adde pwa capabilities inside the angular9 applications.
@@ -78,40 +78,40 @@ All apis has the folloging services
 ### Responses
 ```json
 {
-  result: number,
-  msg: string,
-  data: any
+  "result": number,
+  "msg": string,
+  "data": any
 }
 ```
 
 #### Sample register ok
 ```json
 {
-  result: 0,
-  msg: "User registered successfuly",
-  data: null
+  "result": 0,
+  "msg": "User registered successfuly",
+  "data": null
 }
 ```
 
 #### Sample register error
 ```json
 {
-  result: 1,
-  msg: "Username or mail already taken",
-  data: null
+  "result": 1,
+  "msg": "Username or mail already taken",
+  "data": null
 }
 ```
 
 ### Kiwi Server
 We create a rest api with the following services using kiwi-server.
 
-For more information about this project please follow this [link](https://github.com/ollita7/cavepot-seed/blob/master/apis/kiwi-server/README.md)
+For more information about this project please follow this [link](apis/kiwi-server)
 
 
 ### .Net Core
 IN PROGRESS
 
-For more information about this project please follow this [link](https://github.com/ollita7/cavepot-seed/blob/master/apis/.dotnetcore/README.md)
+For more information about this project please follow this [link](apis/.dotnetcore)
 
 ## Future Work
 1. Create reale case (API for register, reset password, list users) (GUILLE)
