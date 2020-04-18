@@ -105,13 +105,13 @@ All apis has the folloging services
 ### Kiwi Server
 We create a rest api with the following services using kiwi-server.
 
-For more information about this project please follow this [link](apis/kiwi-server)
+For more information about this project please follow this [link](https://ollita7.github.io/viking-seed/apis/kiwi-server)
 
 
 ### .Net Core
 IN PROGRESS
 
-For more information about this project please follow this [link](apis/.dotnetcore)
+For more information about this project please follow this [link](https://ollita7.github.io/viking-seed/apis/.dotnetcore)
 
 ## Future Work
 1. Create reale case (API for register, reset password, list users) (GUILLE)
