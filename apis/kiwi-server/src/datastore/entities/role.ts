@@ -1,16 +1,16 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class role {
+export class Role {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ length: 150 })
   name: string;
 
-  @Column()
+  @Column({ type: 'date', default: () => new Date()})
   createdAt: Date;
 
-  @Column({ nullable: true })
+  @Column({ type: 'date', default: () => new Date()})
   updatedAt: Date;
 }
