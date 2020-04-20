@@ -29,7 +29,5 @@ namespace Viking.Api.Controllers
         public IActionResult ResetPassword(ResetPasswordDataIn data) {
             return StatusCode(200,data);
         }
-        
-        
     }
 }
