@@ -72,8 +72,8 @@ All apis has the folloging services
 * POST `/user` (register a new user) [username, mail, password]
 * GET `/user/curren` (get the current user)
 * POST `/user/login` (authenticate a user) [username, password]
-* POST `/user/forgot-password` [mail]
-* POST `/user/reset-passowrd` [token, password] 
+* POST `/user/forgot-password` [username (username or email)]
+* PUT `/user/reset-passowrd` [token, password] 
 
 ### Responses
 ```json
