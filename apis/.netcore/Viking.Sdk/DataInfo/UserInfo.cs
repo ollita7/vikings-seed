@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 
-namespace Viking.DataAccess
+namespace Viking.Sdk
 {
-    public class Users
+    public class UserInfo
     {
         public int Id { get; set; }
         public string Username { get; set; }

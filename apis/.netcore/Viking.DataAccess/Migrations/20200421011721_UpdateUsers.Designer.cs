@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Viking.DataAccess;
 
 namespace Viking.DataAccess.Migrations
 {
     [DbContext(typeof(VikingContext))]
-    partial class VikingContextModelSnapshot : ModelSnapshot
+    [Migration("20200421011721_UpdateUsers")]
+    partial class UpdateUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

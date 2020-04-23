@@ -24,11 +24,14 @@ namespace Viking.DataAccess
                        {
                            us.HasKey(x => x.Id);
                            us.Property(x => x.Username).HasMaxLength(50);
+                           us.Property(x=>x.PasswordHash).HasMaxLength(150);
                            us.Property(x => x.UpdatedAt).HasDefaultValue(DateTime.Now);
                            us.Property(x => x.Active).HasColumnType("bit").HasDefaultValue(1);
                            us.Property(x => x.Mail).HasMaxLength(50);
                            us.Property(x => x.Token).HasMaxLength(150);
                        });
         }
+
+        public DbSet<Users> Users { get; set; }
     }
 }
