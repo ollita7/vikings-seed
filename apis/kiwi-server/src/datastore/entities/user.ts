@@ -14,6 +14,9 @@ export class User {
   @Column({ length: 50 })
   email: string;
 
+  @Column({ length: 150})
+  token: string;
+
   @Column({ type: 'date', default: () => new Date()})
   createdAt: Date;
 
