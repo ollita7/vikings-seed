@@ -4,13 +4,13 @@ namespace Viking.DataAccess
 {
     public class Users
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public string Mail { get; set; }
-        public string Token { get; set; }
-        public bool Active { get; set; }
+        public int id { get; set; }
+        public string password { get; set; }
+        public string username { get; set; }
+        public string email { get; set; }
+        public string token { get; set; }
+        public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
+        public bool active { get; set; }
     }
 }

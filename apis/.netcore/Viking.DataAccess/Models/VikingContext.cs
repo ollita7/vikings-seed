@@ -22,13 +22,14 @@ namespace Viking.DataAccess
         {
             modelBuilder.Entity<Users>(us =>
                        {
-                           us.HasKey(x => x.Id);
-                           us.Property(x => x.Username).HasMaxLength(50);
-                           us.Property(x=>x.PasswordHash).HasMaxLength(150);
-                           us.Property(x => x.UpdatedAt).HasDefaultValue(DateTime.Now);
-                           us.Property(x => x.Active).HasColumnType("bit").HasDefaultValue(1);
-                           us.Property(x => x.Mail).HasMaxLength(50);
-                           us.Property(x => x.Token).HasMaxLength(150);
+                           us.HasKey(x => x.id);
+                           us.Property(x=>x.password).HasMaxLength(150);
+                           us.Property(x => x.username).HasMaxLength(50);
+                           us.Property(x => x.email).HasMaxLength(50);
+                           us.Property(x => x.token).HasMaxLength(150);
+                           us.Property(x => x.createdAt).HasDefaultValue(DateTime.Now);
+                           us.Property(x => x.updatedAt).HasDefaultValue(DateTime.Now);
+                           us.Property(x => x.active).HasColumnType("bit").HasDefaultValue(1);
                        });
         }
 

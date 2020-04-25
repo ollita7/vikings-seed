@@ -11,7 +11,6 @@ namespace Viking.Sdk
         public string Password { get; set; }
         [Required]
         [EmailAddress]
-        
-        public string Mail { get; set; }
+        public string Email { get; set; }
     }
 }

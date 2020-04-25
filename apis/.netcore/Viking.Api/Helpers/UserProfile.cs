@@ -8,7 +8,8 @@ namespace Viking.Api.Helpers
     {
         public UserProfile()
         {
-            CreateMap<Users,LoginDataIn>();
+            CreateMap<LoginDataIn,Users>();
+            CreateMap<RegisterDataIn,Users>();
         }
     }
 }

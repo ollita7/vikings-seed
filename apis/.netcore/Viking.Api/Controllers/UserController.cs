@@ -1,3 +1,5 @@
+using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Viking.DataAccess;
@@ -11,8 +13,9 @@ namespace Viking.Api.Controllers
     {
         protected readonly UserDataAccess _userData;
         protected readonly JwtService _jwtServices;
-        public UserController(IConfiguration configuration)
+        public UserController(IConfiguration configuration, IMapper mapper)
         {
+            _userData = new UserDataAccess(mapper);
             _jwtServices = new JwtService(configuration);
         }
 
@@ -20,16 +23,19 @@ namespace Viking.Api.Controllers
         [HttpPost]
         public IActionResult Login(LoginDataIn data)
         {
-            return StatusCode(200, new { Token= _jwtServices.GenerateSecurityToken("pablo.ferrari@gmail.com","pablo","23")} );
+            return StatusCode(200, new { Token = _jwtServices.GenerateSecurityToken("pablo.ferrari@gmail.com", "pablo", "23") });
         }
         [HttpPost("/User")]
         public IActionResult Register(RegisterDataIn data)
         {
-            if(_userData.UserExist(data.UserName))
-            return StatusCode(200,"User already exists");
-
-
-            return StatusCode(200, data);
+            try
+            {
+                return StatusCode(200, _userData.Register(data));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Something went wrong");
+            }
         }
         [HttpGet("/User/Current")]
         public IActionResult CurrentUser()
