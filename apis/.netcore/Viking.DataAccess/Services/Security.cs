@@ -1,3 +1,5 @@
+using System;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Viking.DataAccess
@@ -9,26 +11,30 @@ namespace Viking.DataAccess
             //TODO::
             string passwordSalt = "Viking-seed-Salt";
 
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(Encoding.UTF8.GetBytes(passwordSalt)))
+            using (HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(passwordSalt)))
             {
                 byte[] passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                return Encoding.UTF8.GetString(passwordHash);
+                
+                return Convert.ToBase64String(passwordHash);
             }
         }
 
-        public bool VerifyPasswordHash(string password)
+        public bool VerifyPasswordHash(string passwordInput, string passwordStored)
         {
             //TODO::
             string passwordSalt = "Viking-seed-Salt";
-            byte[] passwordHash = Encoding.UTF8.GetBytes(password);
 
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(Encoding.UTF8.GetBytes(passwordSalt)))
+
+
+            byte[] PasswordFromBase = System.Convert.FromBase64String(passwordStored);
+
+            using (HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(passwordSalt)))
             {
-                byte[] ComputeHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                byte[] passwordFromUser = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(passwordInput));
 
-                for (int i = 0; i < ComputeHash.Length; i++)
+                for (int i = 0; i < passwordFromUser.Length; i++)
                 {
-                    if (ComputeHash[i] != passwordHash[i])
+                    if (passwordFromUser[i] != PasswordFromBase[i])
                         return false;
                 }
             }

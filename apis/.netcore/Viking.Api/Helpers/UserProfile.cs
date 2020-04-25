@@ -10,6 +10,7 @@ namespace Viking.Api.Helpers
         {
             CreateMap<LoginDataIn,Users>();
             CreateMap<RegisterDataIn,Users>();
+            CreateMap<Users,LoginOut>();
         }
     }
 }

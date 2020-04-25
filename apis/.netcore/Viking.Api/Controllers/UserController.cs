@@ -18,13 +18,27 @@ namespace Viking.Api.Controllers
             _userData = new UserDataAccess(mapper);
             _jwtServices = new JwtService(configuration);
         }
-
-
         [HttpPost]
         public IActionResult Login(LoginDataIn data)
         {
-            return StatusCode(200, new { Token = _jwtServices.GenerateSecurityToken("pablo.ferrari@gmail.com", "pablo", "23") });
+            try
+            {
+                (RetornoDataOut retorno, LoginOut loginOut) = _userData.Login(data);
+                if (retorno.Result == Retorno.Error)
+                    return StatusCode(200, retorno);
+
+                RetornoDataOut DataRetorno = new RetornoDataOut
+                {
+                    Data = new { Token = _jwtServices.GenerateSecurityToken(loginOut.Email, loginOut.Username, loginOut.Id.ToString()) }
+                };
+                return StatusCode(200, DataRetorno);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Something went wrong");
+            }
         }
+
         [HttpPost("/User")]
         public IActionResult Register(RegisterDataIn data)
         {
@@ -32,7 +46,7 @@ namespace Viking.Api.Controllers
             {
                 return StatusCode(200, _userData.Register(data));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "Something went wrong");
             }
