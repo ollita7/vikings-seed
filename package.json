@@ -1,0 +1,20 @@
+{
+  "name": "cavepot-seed",
+  "version": "1.0.0",
+  "description": "This poject is intended for those developers that want to start a project from scratch and doesnt devide about the stack techonolgies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "cd apis/kiwi-server && kc build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ollita7:3747dadd6841bd676af0fdeffc051deb7efe9793@github.com/ollita7/angular9-workshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ollita7/angular9-workshop/issues"
+  },
+  "homepage": "https://github.com/ollita7/angular9-workshop#readme"
+}

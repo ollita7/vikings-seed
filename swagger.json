@@ -20,6 +20,31 @@
                     "content": {
                         "application/json": {
                             "schema": {
+                                "$ref": "#/components/schemas/LoginIn"
+                            }
+                        }
+                    },
+                    "description": "LoginIn",
+                    "required": true
+                }
+            }
+        },
+        "/user": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "tags": [
+                    "user"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
                                 "$ref": "#/components/schemas/UserIn"
                             }
                         }
@@ -48,6 +73,25 @@
     "components": {
         "schemas": {
             "UserIn": {
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username",
+                    "email",
+                    "password"
+                ]
+            },
+            "LoginIn": {
                 "properties": {
                     "username": {
                         "type": "string"

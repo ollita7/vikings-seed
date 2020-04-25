@@ -17,7 +17,12 @@ npm install kiwi-server-cli -g
 
 * Run the migrations to create the database schema:
 ```bash
-npx typeorm migration:run
+node run migration run
+```
+
+* Revert the migrations to create the database schema:
+```bash
+node run migration revert
 ```
 
 * Create new migration
