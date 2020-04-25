@@ -11,7 +11,7 @@ dotnet ef database update
 ```
 * Run project
 ```
-dotnet run || dotnet watch run
+dotnet run
 ```
 * Create migrations
 ```
