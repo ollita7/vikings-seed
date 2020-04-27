@@ -1,5 +1,7 @@
 using System;
+using System.Security.Claims;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Viking.DataAccess;
@@ -7,6 +9,7 @@ using Viking.Sdk;
 
 namespace Viking.Api.Controllers
 {
+    [Authorize]
     [Route("[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -18,6 +21,7 @@ namespace Viking.Api.Controllers
             _userData = new UserDataAccess(mapper);
             _jwtServices = new JwtService(configuration);
         }
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Login(LoginDataIn data)
         {
@@ -54,7 +58,15 @@ namespace Viking.Api.Controllers
         [HttpGet("/User/Current")]
         public IActionResult CurrentUser()
         {
-            return StatusCode(200, new { mensaje = "Tamo ativo" });
+            try
+            {
+                string user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+                return StatusCode(200, new RetornoDataOut{Msg = $"Current user: {user}"});
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Something went wrong");
+            }
         }
         [HttpPost("/User/Forgot-Password")]
         public IActionResult ForgotPassword(ForgotPasswordDataIn data)
