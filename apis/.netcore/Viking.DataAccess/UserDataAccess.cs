@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using Viking.Sdk;
 
 
@@ -13,10 +14,10 @@ namespace Viking.DataAccess
         private readonly Security _security;
 
 
-        public UserDataAccess(IMapper mapper)
+        public UserDataAccess(IConfiguration configuration, IMapper mapper)
         {
-            _context = new VikingContext();
-            _security = new Security();
+            _context = new VikingContext(configuration);
+            _security = new Security(configuration);
             _mapper = mapper;
         }
 
@@ -45,14 +46,5 @@ namespace Viking.DataAccess
             return new RetornoDataOut { Result = Retorno.Ok };
 
         }
-
-
-
-
-
-
-
-
-
     }
 }

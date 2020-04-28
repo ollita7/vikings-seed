@@ -1,20 +1,22 @@
 using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Viking.DataAccess
 {
     public class VikingContext : DbContext
     {
-        public VikingContext()
+        protected readonly IConfiguration _configuration;
+        public VikingContext(IConfiguration configuration)
         {
-
+            _configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=Viking;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(_configuration["Database:SqlConnection"]);
             }
             base.OnConfiguring(optionsBuilder);
         }
@@ -23,7 +25,7 @@ namespace Viking.DataAccess
             modelBuilder.Entity<Users>(us =>
                        {
                            us.HasKey(x => x.id);
-                           us.Property(x=>x.password).HasMaxLength(150);
+                           us.Property(x => x.password).HasMaxLength(150);
                            us.Property(x => x.username).HasMaxLength(50);
                            us.Property(x => x.email).HasMaxLength(50);
                            us.Property(x => x.token).HasMaxLength(150);

@@ -8,7 +8,7 @@ namespace Viking.Api
 {
     public static class AuthenticationMiddleware
     {
-        public static IServiceCollection AddTokenAuthentication(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddTokenAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAuthentication(x =>
             {
@@ -19,7 +19,7 @@ namespace Viking.Api
             {
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.GetSection("Jwt").GetSection("Key").Value)),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"])),
                     ValidateIssuer = false,
                     ValidateAudience = false,
                 };

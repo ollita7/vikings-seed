@@ -11,9 +11,9 @@ namespace Viking.Api
     {
         private readonly IConfiguration _configuration;
 
-        public JwtService(IConfiguration config)
+        public JwtService(IConfiguration configuration)
         {
-            _configuration = config;
+            _configuration = configuration;
         }
 
         public string GenerateSecurityToken(string mail, string nombre, string id)
@@ -23,14 +23,14 @@ namespace Viking.Api
                 new Claim(ClaimTypes.Name,nombre),
                 new Claim(ClaimTypes.Email,mail),
             };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("Jwt").GetSection("Key").Value));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddMinutes(Convert.ToInt32(_configuration.GetSection("Jwt").GetSection("Expires").Value)),
+                Expires = DateTime.Now.AddMinutes(Convert.ToInt32(_configuration["Jwt:Expires"])),
                 SigningCredentials = creds
             };
 

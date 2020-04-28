@@ -16,10 +16,12 @@ namespace Viking.Api.Controllers
     {
         protected readonly UserDataAccess _userData;
         protected readonly JwtService _jwtServices;
+        protected readonly IConfiguration _configuration;
         public UserController(IConfiguration configuration, IMapper mapper)
         {
-            _userData = new UserDataAccess(mapper);
+            _userData = new UserDataAccess(configuration, mapper);
             _jwtServices = new JwtService(configuration);
+            _configuration = configuration;
         }
         [AllowAnonymous]
         [HttpPost]
@@ -61,7 +63,7 @@ namespace Viking.Api.Controllers
             try
             {
                 string user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
-                return StatusCode(200, new RetornoDataOut{Msg = $"Current user: {user}"});
+                return StatusCode(200, new RetornoDataOut { Msg = $"Current user: {user}" });
             }
             catch (Exception)
             {
