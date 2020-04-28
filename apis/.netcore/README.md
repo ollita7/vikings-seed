@@ -3,6 +3,12 @@
 Project created by .Net Core 3.1
 
 ## Getting Started
+*Create Secrets
+
+```
+dotnet user-secrets init
+
+```
 
 * Run the migrations to create the database schema:
 ```
