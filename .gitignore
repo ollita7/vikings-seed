@@ -4,3 +4,11 @@ apis/kiwi-server/.env
 uis/angular9/node_modules/
 uis/angular9/dist/
 
+apis/.netcore/Viking.Sdk/obj/
+apis/.netcore/Viking.Api/bin/
+apis/.netcore/Viking.Api/obj/
+apis/.netcore/Viking.Api/obj/
+apis/.netcore/Viking.Api/obj/
+apis/.netcore/Viking.DataAccess/bin/
+apis/.netcore/Viking.DataAccess/obj/
+apis/.netcore/Viking.Sdk/bin/
