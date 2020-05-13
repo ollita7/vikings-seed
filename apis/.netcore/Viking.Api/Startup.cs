@@ -1,9 +1,17 @@
+using System.IO;
+using System.Net;
+using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Viking.Sdk;
 
 namespace Viking.Api
 {
@@ -30,6 +38,25 @@ namespace Viking.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler(builder =>
+                {
+                    builder.Run(async context =>
+                    {
+                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        context.Response.ContentType = "application/json";
+                        var error = context.Features.Get<IExceptionHandlerFeature>();
+                        if (error != null)
+                        {
+                            string appDefinition = await new StreamReader(context.Request.Body).ReadToEndAsync();
+                            var newAppJson = JObject.Parse(appDefinition);
+                            await context.Response.WriteAsync(JsonConvert.SerializeObject(new RetornoDataOut { Result = Retorno.Error, Msg = "Something went wrong", Data =newAppJson }));
+                        }
+                       
+                    });
+                });
             }
 
             app.UseHttpsRedirection();

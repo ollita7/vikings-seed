@@ -27,8 +27,9 @@ namespace Viking.Api.Controllers
         [HttpPost]
         public IActionResult Login(LoginDataIn data)
         {
-            try
-            {
+            
+                throw new Exception("Error");
+
                 (RetornoDataOut retorno, LoginOut loginOut) = _userData.Login(data);
                 if (retorno.Result == Retorno.Error)
                     return StatusCode(200, retorno);
@@ -38,11 +39,6 @@ namespace Viking.Api.Controllers
                     Data = new { Token = _jwtServices.GenerateSecurityToken(loginOut.Email, loginOut.Username, loginOut.Id.ToString()) }
                 };
                 return StatusCode(200, DataRetorno);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, "Something went wrong");
-            }
         }
 
         [HttpPost("/User")]
