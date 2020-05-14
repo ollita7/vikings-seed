@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Viking.Api.Middleware;
 using Viking.Sdk;
 
 namespace Viking.Api
@@ -44,18 +46,21 @@ namespace Viking.Api
                 app.UseExceptionHandler(builder =>
                 {
                     builder.Run(async context =>
-                    {
-                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                        context.Response.ContentType = "application/json";
-                        var error = context.Features.Get<IExceptionHandlerFeature>();
-                        if (error != null)
                         {
-                            string appDefinition = await new StreamReader(context.Request.Body).ReadToEndAsync();
-                            var newAppJson = JObject.Parse(appDefinition);
-                            await context.Response.WriteAsync(JsonConvert.SerializeObject(new RetornoDataOut { Result = Retorno.Error, Msg = "Something went wrong", Data =newAppJson }));
-                        }
-                       
-                    });
+                            var error = context.Features.Get<IExceptionHandlerFeature>();
+                            if (error != null)
+                            {
+                                var err = JsonConvert.SerializeObject(new
+                                {
+                                    Stacktrace = error.Error.StackTrace,
+                                    DetailedMessage = error.Error.Message,
+                                });
+                                string appDefinition = await new StreamReader(context.Request.Body).ReadToEndAsync();
+                                Log.ErrorLog("InternalError", JsonConvert.SerializeObject(err), $"Input: {JObject.Parse(appDefinition)}");
+                                context.Response.AddApplicationError("Internal error ocurred. Please contact your administrator");
+                            }
+
+                        });
                 });
             }
 

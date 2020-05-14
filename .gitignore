@@ -12,3 +12,4 @@ apis/.netcore/Viking.Api/obj/
 apis/.netcore/Viking.DataAccess/bin/
 apis/.netcore/Viking.DataAccess/obj/
 apis/.netcore/Viking.Sdk/bin/
+apis/.netcore/Viking.Api/ErrorLog/
