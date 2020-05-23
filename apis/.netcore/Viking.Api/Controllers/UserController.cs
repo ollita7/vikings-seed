@@ -27,48 +27,27 @@ namespace Viking.Api.Controllers
         [HttpPost]
         public IActionResult Login(LoginDataIn data)
         {
-            try
-            {
-                (RetornoDataOut retorno, LoginOut loginOut) = _userData.Login(data);
-                if (retorno.Result == Retorno.Error)
-                    return StatusCode(200, retorno);
+            (RetornoDataOut retorno, LoginOut loginOut) = _userData.Login(data);
+            if (retorno.Result == Retorno.Error)
+                return StatusCode(200, retorno);
 
-                RetornoDataOut DataRetorno = new RetornoDataOut
-                {
-                    Data = new { Token = _jwtServices.GenerateSecurityToken(loginOut.Email, loginOut.Username, loginOut.Id.ToString()) }
-                };
-                return StatusCode(200, DataRetorno);
-            }
-            catch (Exception)
+            RetornoDataOut DataRetorno = new RetornoDataOut
             {
-                return StatusCode(500, "Something went wrong");
-            }
+                Data = new { Token = _jwtServices.GenerateSecurityToken(loginOut.Email, loginOut.Username, loginOut.Id.ToString()) }
+            };
+            return StatusCode(200, DataRetorno);
         }
 
         [HttpPost("/User")]
         public IActionResult Register(RegisterDataIn data)
         {
-            try
-            {
-                return StatusCode(200, _userData.Register(data));
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, "Something went wrong");
-            }
+            return StatusCode(200, _userData.Register(data));
         }
         [HttpGet("/User/Current")]
         public IActionResult CurrentUser()
         {
-            try
-            {
-                string user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
-                return StatusCode(200, new RetornoDataOut { Msg = $"Current user: {user}" });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, "Something went wrong");
-            }
+            string user = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+            return StatusCode(200, new RetornoDataOut { Msg = $"Current user: {user}" });
         }
         [HttpPost("/User/Forgot-Password")]
         public IActionResult ForgotPassword(ForgotPasswordDataIn data)

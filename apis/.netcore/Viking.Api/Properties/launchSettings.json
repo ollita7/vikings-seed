@@ -16,7 +16,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    },
+    }
+    ,
     "Viking.Api": {
       "commandName": "Project",
       "launchBrowser": false,

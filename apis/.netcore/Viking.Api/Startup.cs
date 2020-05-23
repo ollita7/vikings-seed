@@ -1,9 +1,19 @@
+using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Viking.Api.Middleware;
+using Viking.Sdk;
 
 namespace Viking.Api
 {
@@ -30,6 +40,28 @@ namespace Viking.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler(builder =>
+                {
+                    builder.Run(async context =>
+                        {
+                            var error = context.Features.Get<IExceptionHandlerFeature>();
+                            if (error != null)
+                            {
+                                var err = JsonConvert.SerializeObject(new
+                                {
+                                    Stacktrace = error.Error.StackTrace,
+                                    DetailedMessage = error.Error.Message,
+                                });
+                                string appDefinition = await new StreamReader(context.Request.Body).ReadToEndAsync();
+                                Log.ErrorLog("InternalError", JsonConvert.SerializeObject(err), $"Input: {JObject.Parse(appDefinition)}");
+                                context.Response.AddApplicationError("Internal error ocurred. Please contact your administrator");
+                            }
+
+                        });
+                });
             }
 
             app.UseHttpsRedirection();

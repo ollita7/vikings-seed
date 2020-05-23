@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Viking.Api",
+    "\\Viking.Api\\Controllers",
+    "\\Viking.Api\\Middleware",
+    "\\Viking.Api\\Services",
+    "\\Viking.DataAccess"
+  ],
+  "SelectedNode": "\\.UserSecrets.Example",
+  "PreviewInSolutionExplorer": false
+}
