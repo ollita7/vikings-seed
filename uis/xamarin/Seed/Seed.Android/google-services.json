@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "195224062481",
+    "firebase_url": "https://xamarin-seed-e8cdc.firebaseio.com",
+    "project_id": "xamarin-seed-e8cdc",
+    "storage_bucket": "xamarin-seed-e8cdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195224062481:android:9b9566dae9ab49549bbfb0",
+        "android_client_info": {
+          "package_name": "com.companyname.seed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195224062481-esstk81jovik5ldbg2hldhju4fits942.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7bEDM52biOTFuU6GN8vfpqY6SAyd0U58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195224062481-esstk81jovik5ldbg2hldhju4fits942.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

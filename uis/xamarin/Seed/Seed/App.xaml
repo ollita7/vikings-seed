@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seed.App">
+    <Application.Resources>
+        <Color x:Key="BackgroundColor">#414754</Color>
+        <Color x:Key="ButtonColor">#20232C</Color>
+        <Color x:Key="BlackColor">#363a46</Color>
+        <Color x:Key="WhiteColor">#fffffe</Color>
+        <Color x:Key="PlaceholderTextColor">#DEE1E8</Color>
+        <Color x:Key="EntryTextColor">#F8AD1C</Color>
+    </Application.Resources>
+</Application>

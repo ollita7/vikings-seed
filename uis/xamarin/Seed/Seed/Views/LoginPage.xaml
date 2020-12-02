@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seed.Views.LoginPage">
+    <ContentPage.Resources>
+        
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" BackgroundColor="{StaticResource BackgroundColor}">
+        <!--Grid
+
+        <Grid BackgroundColor="Aqua" RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="240" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ImageButton 
+                        BackgroundColor="Red"
+                         HeightRequest="90"
+                         WidthRequest="90"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         />
+            </Grid>-->
+        
+            
+            <AbsoluteLayout HeightRequest="240"
+                            BackgroundColor="Transparent">
+                <Frame CornerRadius="20" 
+                       AbsoluteLayout.LayoutBounds="0.5,0.5,150,150"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       BorderColor="{StaticResource ButtonColor}">
+                    <Image Source="cavepot.png"/>
+                </Frame>
+            </AbsoluteLayout>
+            
+            
+            
+            <StackLayout Padding="20,0" Margin="0,20,0,0" HeightRequest="240">
+                <Entry Text="{Binding User}" 
+                       Placeholder="Usuario" 
+                       BackgroundColor="Transparent"
+                       PlaceholderColor="{StaticResource PlaceholderTextColor}" 
+                       TextColor="{StaticResource WhiteColor}"/>
+                <Entry Text="{Binding Password}" Placeholder="Contraseña" IsPassword="True" BackgroundColor="Transparent" PlaceholderColor="{StaticResource PlaceholderTextColor}" TextColor="{StaticResource WhiteColor}"/>
+            </StackLayout>
+
+            <Button Text="Log in" 
+                    Clicked="Button_Clicked"  
+                    BackgroundColor="{StaticResource ButtonColor}" 
+                    TextColor="{StaticResource WhiteColor}"
+                    Margin="80,0"
+                    CornerRadius="80"/>
+            <Label Text="First time here? Sign up." 
+                   FontSize="14"
+                   TextColor="{StaticResource WhiteColor}"
+                   Margin="28,0"
+                   HorizontalTextAlignment="End"
+                   Padding="0,16">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Clicked_1"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage> 

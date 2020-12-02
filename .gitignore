@@ -13,3 +13,12 @@ apis/.netcore/Viking.DataAccess/bin/
 apis/.netcore/Viking.DataAccess/obj/
 apis/.netcore/Viking.Sdk/bin/
 apis/.netcore/Viking.Api/ErrorLog/
+
+uis/xamarin/Seed/Seed.Android/bin/
+uis/xamarin/Seed/Seed.Android/obj/
+
+uis/xamarin/Seed/Seed.iOS/bin/
+uis/xamarin/Seed/Seed.iOS/obj/
+
+uis/xamarin/Seed/Seed/bin/
+uis/xamarin/Seed/Seed/obj/
