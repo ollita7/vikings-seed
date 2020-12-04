@@ -1,0 +1,14 @@
+{
+    "name": "slim/seed",
+    "description": "A Slim Framework",
+    "require": {
+        "slim/slim": "3.*",
+        "monolog/monolog": "^2.1",
+        "kreait/firebase-php": "^5.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    }
+}
