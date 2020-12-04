@@ -9,8 +9,9 @@ namespace Seed
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            //MainPage = new LoginPage();
             //MainPage = new TabPage();
+            MainPage = new MyMasterDetailPage();
         }
 
         protected override void OnStart()

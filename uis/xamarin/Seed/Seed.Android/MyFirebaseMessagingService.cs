@@ -12,8 +12,12 @@ namespace Seed.Droid
         const string TAG = "MyFirebaseMsgService";
         public override void OnMessageReceived(RemoteMessage message)
         {
-            Log.Debug(TAG, "From: " + message.From);
-            Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+            base.OnMessageReceived(message);
+            new NotificationHelper().CreateNotification("LLego un coso nuevo", "Este es el body del coso nuevo");
+
+            //Log.Debug(TAG, "From: " + message.From);
+            //Log.Debug(TAG, "Message Object: " + message);
+            ////Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
         }
     }
 }
