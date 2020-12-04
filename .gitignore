@@ -14,6 +14,8 @@ apis/.netcore/Viking.DataAccess/obj/
 apis/.netcore/Viking.Sdk/bin/
 apis/.netcore/Viking.Api/ErrorLog/
 
+apis/php/Seed/vendor/*
+
 uis/xamarin/Seed/Seed.Android/bin/
 uis/xamarin/Seed/Seed.Android/obj/
 
